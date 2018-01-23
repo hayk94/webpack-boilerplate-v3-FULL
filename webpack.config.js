@@ -25,10 +25,10 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextWebpackPlugin.extract({
+        use: ['css-hot-loader'].concat(ExtractTextWebpackPlugin.extract({
           use: ['css-loader', 'sass-loader'],
           fallback: 'style-loader'
-        })
+        }))
       },
       {
         test: /\.jsx$/, // files ending with js
