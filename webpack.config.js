@@ -10,6 +10,12 @@ const config = {
     path: path.resolve(__dirname, './public'),
     filename: './output.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.scss', '.css', '.jpeg', '.jpg', '.gif', '.png'], // Automatically resolve certain extensions
+    alias: { // Create Aliases
+      images: path.resolve(__dirname, 'src/assets/images')
+    }
+  },
   module: {
     rules: [
       {
