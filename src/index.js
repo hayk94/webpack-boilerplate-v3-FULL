@@ -1,4 +1,4 @@
-import './styles.scss'
+import './assets/stylesheets/styles.scss'
 
 class Car {
   manufacturer = (car) => document.write(`I have a ${car}!`)
