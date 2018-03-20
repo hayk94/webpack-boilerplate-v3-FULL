@@ -65,14 +65,7 @@ const config = {
   },
   plugins: [
     new ExtractTextWebpackPlugin('styles.css')
-  ],
-  devServer: {
-    contentBase: path.resolve(__dirname, './public'), // a directory or URL to serve HTML from
-    historyApiFallback: true, // fallback to /index.html for single page applications
-    inline: true, // inline mode, (set false to disable including client scripts (like live reload))
-    open: true // open default browser while launching
-  },
-  devtool: 'eval-source-map' // enable devtool for bettet debugging experience
+  ]
 }
 
 module.exports = config
@@ -82,4 +75,12 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin(),
     new OptimizeCSSAssets()
   )
+} else {
+  module.exports.devtool = 'eval-source-map' // enable devtool for better debugging experience
+  module.exports.devServer = {
+    contentBase: path.resolve(__dirname, './public'), // a directory or URL to serve HTML from
+    historyApiFallback: true, // fallback to /index.html for single page applications
+    inline: true, // inline mode, (set false to disable including client scripts (like live reload))
+    open: true // open default browser while launching
+  }
 }
