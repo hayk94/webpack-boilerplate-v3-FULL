@@ -1,19 +1,12 @@
 import React from 'react'
 
-import ImageWrapper from './ImageWrapper.jsx'
+import { Provider } from 'react-redux'
+import store from './redux'
 
-import cat from 'images/cat.jpg'
-import dog from 'images/dog.jpg'
-import dogAndCat from 'images/dogAndCat.jpg'
+import Images from './Images'
 
-const App = (props) => {
-  return (
-    <div className='container'>
-      <ImageWrapper src={cat} />
-      <ImageWrapper src={dog} />
-      <ImageWrapper src={dogAndCat} />
-    </div>
-  )
-}
+const App = props => <Provider store={store}>
+  <Images />
+</Provider>
 
 export default App

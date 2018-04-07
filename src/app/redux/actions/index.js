@@ -1,0 +1,1 @@
+export const SET_TEST_REDUCER = 'SET_TEST_REDUCER'
