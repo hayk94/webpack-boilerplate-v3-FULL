@@ -72,6 +72,10 @@ module.exports = config
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.plugins.push(
+    // https://reactjs.org/docs/optimizing-performance.html#webpack
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     new webpack.optimize.UglifyJsPlugin(),
     new OptimizeCSSAssets()
   )
